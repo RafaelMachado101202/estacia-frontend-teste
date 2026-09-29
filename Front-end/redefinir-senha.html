@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>estacIA - Recuperar Senha</title>
+  <title>estacIA - Redefinir Senha</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -54,7 +54,6 @@
       }
       .header-subtitle {
         font-size: 14px !important;
-        max-width: 100% !important;
       }
       .form-body {
         padding: 32px !important;
@@ -181,42 +180,35 @@
     
     <div class="header-bege">
       <div class="brand-logo">estac<span>IA</span></div>
-      <h2 class="header-title">Recuperar Senha</h2>
-      <p class="header-subtitle">Digite seu e-mail para receber as instruções de redefinição</p>
+      <h2 class="header-title">Redefinir Senha</h2>
+      <p class="header-subtitle">Digite e confirme a sua nova senha</p>
     </div>
 
-    <form class="form-body" id="formRecuperar">
+    <form class="form-body" id="formRedefinir">
       
       <div class="input-group">
-        <label class="input-label">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          E-mail cadastrado
-        </label>
-        <input type="email" id="email" class="input-box" placeholder="seu@email.com" required />
+        <label class="input-label">Nova Senha</label>
+        <input type="password" id="novaSenha" class="input-box" placeholder="Digite a nova senha" required minlength="6" />
       </div>
 
-      <button type="submit" id="btnEnviar" class="btn-submit">Enviar Instruções</button>
+      <div class="input-group">
+        <label class="input-label">Confirmar Nova Senha</label>
+        <input type="password" id="confirmarSenha" class="input-box" placeholder="Repita a nova senha" required minlength="6" />
+      </div>
+
+      <button type="submit" id="btnSalvar" class="btn-submit">Salvar Nova Senha</button>
 
       <div class="footer-text">
-        Lembrou da senha? <a href="index.html">Voltar ao Login</a>
+        <a href="index.html">Cancelar e Voltar ao Login</a>
       </div>
 
     </form>
 
   </div>
 
-  <!-- 1. BIBLIOTECA DO SUPABASE -->
+  <!-- CONEXÃO COM O SUPABASE E SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="js/supabaseClient.js"></script>
-
-  <!-- 2. BIBLIOTECA DO EMAILJS (Precisa vir antes do recuperar.js) -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <script>
-    // Cole aqui a sua Public Key do EmailJS (que fica em Account no painel do EmailJS)
-    emailjs.init("aqcUu8Y62SHLWkyHT");
-  </script>
-
-  <!-- 3. SCRIPT PRINCIPAL DE RECUPERAÇÃO -->
-  <script src="js/recuperar.js"></script>
+  <script src="./js/supabaseClient.js"></script>
+  <script src="./js/redefinir-senha.js"></script>
 </body>
 </html>
